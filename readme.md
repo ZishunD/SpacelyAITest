@@ -1,4 +1,5 @@
-```markdown
+---
+
 # 🧠 Junior Software Engineer Test - Text-to-Image Generator
 
 This is my implementation of the Junior Software Engineer test project: a full-stack app that converts text prompts into AI-generated images using the **Spacely Enterprise API**.
@@ -19,14 +20,10 @@ The frontend is built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**. The
 
 ## 📁 Project Structure
 
-```
-
 /frontend             # Frontend app (Next.js)
 /backend              # Backend API (NestJS)
 /docker-compose.yml   # Docker Compose configuration
 /README.md            # This README file
-
-````
 
 ---
 
