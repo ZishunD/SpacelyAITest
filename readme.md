@@ -1,5 +1,3 @@
-Here’s the updated and fully English version of your `README.md`, including an open-source license section (I've added the MIT License, which is the most permissive and commonly used for projects like this — let me know if you prefer another one):
-
 ---
 
 ```markdown
