@@ -1,5 +1,3 @@
----
-
 ```markdown
 # 🧠 Junior Software Engineer Test - Text-to-Image Generator
 
@@ -134,5 +132,3 @@ Returns a list of all previous prompt/image generations.
 This project is licensed under the [MIT License](LICENSE).
 
 ````
-
----
