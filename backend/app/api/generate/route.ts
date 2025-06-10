@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { db } from "../../firebase"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 
 const SPACELY_API_KEY = process.env.SPACELY_API_KEY || "";
 
@@ -71,6 +73,13 @@ export async function POST(request: Request) {
         if (!resultData) {
             return NextResponse.json({ error: "Timeout waiting for image generation" }, { status: 504 });
         }
+
+        await addDoc(collection(db, "history"), {
+            prompt,
+            nPrompt,
+            imageUrls: resultData,
+            createdAt: serverTimestamp(),
+        });
 
         return NextResponse.json({ imageUrls: resultData }, {
             headers: {
