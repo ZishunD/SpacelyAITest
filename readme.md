@@ -18,11 +18,12 @@ The frontend is built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**. The
 
 ## 📁 Project Structure
 
+```bash
 /frontend             # Frontend app (Next.js)
 /backend              # Backend API (NestJS)
 /docker-compose.yml   # Docker Compose configuration
 /README.md            # This README file
-
+```
 ---
 
 ## 🚀 How to Run Locally
