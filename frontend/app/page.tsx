@@ -44,6 +44,7 @@ export default function Home() {
       });
 
       setImageUrls(res.data.imageUrls);
+      handleHistory();
     } catch (err) {
       console.error("Error generating image:", err);
     } finally {
