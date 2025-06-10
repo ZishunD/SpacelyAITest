@@ -1,5 +1,3 @@
----
-
 # 🧠 Junior Software Engineer Test - Text-to-Image Generator
 
 This is my implementation of the Junior Software Engineer test project: a full-stack app that converts text prompts into AI-generated images using the **Spacely Enterprise API**.
