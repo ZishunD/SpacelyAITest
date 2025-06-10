@@ -80,6 +80,13 @@ docker-compose up --build
 
 Generates images based on prompt and optional negative prompt.
 
+```bash
+#Test
+curl -X POST http://localhost:3000/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"A futuristic Tokyo street scene at night","nPrompt":"low quality, blurry"}'
+```
+
 **Request Example:**
 
 ```json
@@ -105,6 +112,11 @@ Generates images based on prompt and optional negative prompt.
 
 Returns a list of all previous prompt/image generations.
 
+```bash
+#Test
+curl -X GET http://localhost:3000/api/history
+```
+
 **Response Example:**
 
 ```json
@@ -126,5 +138,3 @@ Returns a list of all previous prompt/image generations.
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
-````
