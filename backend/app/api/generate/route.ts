@@ -43,7 +43,7 @@ export async function POST(request: Request) {
         const generateData = await generateRes.json();
         const refId = generateData.data;
 
-        // 轮询结果
+        // ask for AI generated result
         let attempt = 0;
         let resultData: string[] | null = null;
         while (attempt < 20) {

@@ -68,7 +68,6 @@ docker-compose up --build
 * Calls Spacely API to generate images
 * Saves prompts and image URLs in Firestore
 * Displays image generation history
-* Auto-detects expired images and shows fallback message
 * Light and dark mode support
 * Fully Dockerized for easy deployment
 

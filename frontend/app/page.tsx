@@ -1,7 +1,5 @@
 "use client"
 import axios from "axios";
-
-
 import PromptForm from "@/components/PromtForm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -11,6 +9,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ThemeToggle from "@/components/ThemeToggle";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
     const res = await axios.get("http://localhost:3001/api/history");
     console.log(res.data);
 
-    // ✅ 更新历史记录
+    // ✅ update history records
     setHistory(res.data.histories);
   } catch (err) {
     console.error("Error generating image:", err);
@@ -54,9 +54,10 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen p-4 bg-gray-50">
+    <div className="min-h-screen p-4 bg-blue-100 dark:bg-gray-900 text-black dark:text-white">
+      <ThemeToggle />
       <h1 className="text-2xl font-bold text-center mb-6">🧠 Text to Image Generator</h1>
-
+      
       {imageUrls.length > 0 && (
         <Carousel className="max-w-xl mx-auto mb-6">
           <CarouselContent>
@@ -70,16 +71,22 @@ export default function Home() {
           <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
         </Carousel>
       )}
-
+      {loading && (
+        <div className="flex flex-col items-center justify-center mt-6 space-y-2">
+          <LoadingSpinner size={48} />
+          <p className="text-sm text-muted-foreground">Generating Image</p>
+        </div>
+      )}
+      
       <PromptForm onSubmit={handleGenerate} />
-      {loading && <p className="text-center mt-4">⏳ Generating image...</p>}
+    
       {/* History section */}
       {history.length > 0 && (
           <div className="mt-10">
             <h2 className="text-xl font-semibold text-center mb-4">📝 Generation History</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {history.map((item, idx) => (
-                <Card key={idx}>
+                <Card key={idx} className="dark:bg-gray-800 text-black dark:text-white">
                   <CardHeader>
                     <CardTitle className="text-base">Prompt: {item.prompt}</CardTitle>
                     {item.nPrompt && (
@@ -91,7 +98,7 @@ export default function Home() {
                       <img
                         key={i}
                         src={url}
-                        alt={`Generated ${idx}-${i}`}
+                        alt={`Image Expired`}
                         className="rounded-lg w-full max-h-48 object-contain shadow"
                       />
                     ))}
